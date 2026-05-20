@@ -31,7 +31,7 @@ pipeline {
                 sh 'terraform plan'
             }
         }
-        // Deployment Apporval
+        // Manual Deployment Approval
         stage('Manual Approval') {
             steps {
                 input 'Approval Infra Deployment'
@@ -43,6 +43,7 @@ pipeline {
                 sh 'terraform apply --auto-approve'
             }
         }
+
     }
     post {
     always {

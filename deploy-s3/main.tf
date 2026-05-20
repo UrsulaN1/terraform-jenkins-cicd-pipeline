@@ -1,6 +1,6 @@
 # Resources = Bucket resource
-resource "aws_s3_bucket" "mbandi_dev_bucket" {
-  bucket = "mbandi-dev-bucket-126543279878787"
+resource "aws_s3_bucket" "ln_dev_bucket" {
+  bucket = "ln-dev-bucket"
   tags = {
     Environment = "dev"
     CostCenter  = "cc590"
