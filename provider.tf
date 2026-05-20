@@ -1,12 +1,18 @@
 # Terraform settings configuration
 terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "5.50.0"
-    }
+  backend "s3" {
+    bucket         = "webhook-state-file"
+    key            = "envs/prod/terraform.tfstate"
+    region         = "us-east-1"
+
+    # For Terraform 1.10+, use native S3 locking (Recommended)
+    use_lockfile   = true
+
+    # For older versions, use DynamoDB for locking
+    # dynamodb_table = "terraform-state-locking"
   }
 }
+
 
 # Provider configuration
 provider "aws" {
